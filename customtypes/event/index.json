@@ -12,13 +12,6 @@
         },
         "type": "UID"
       },
-      "slug": {
-        "type": "Text",
-        "config": {
-          "label": "Slug",
-          "placeholder": ""
-        }
-      },
       "event_title": {
         "type": "StructuredText",
         "config": {

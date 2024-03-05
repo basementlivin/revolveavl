@@ -27,6 +27,8 @@
     "concurrently": "^8.2.2",
     "eslint": "^8.52.0",
     "nuxt": "^3.8.0",
+    "sass": "^1.71.1",
+    "sass-loader": "^14.1.1",
     "slice-machine-ui": "^1.24.1"
   }
 }

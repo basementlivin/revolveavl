@@ -11,17 +11,6 @@ type EventDocumentDataSlicesSlice = ImageSlice | TextWithImageSlice | TextSlice;
  */
 interface EventDocumentData {
   /**
-   * Slug field in *Event*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: event.slug
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  slug: prismic.KeyTextField;
-
-  /**
    * Event Title field in *Event*
    *
    * - **Field Type**: Rich Text

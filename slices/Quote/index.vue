@@ -11,7 +11,7 @@ defineProps(getSliceComponentProps<Content.QuoteSlice>(
 <template>
   <Bounded
     as="section"
-    class="bg-white"
+    class="quote bg-white"
   >
     <figure
       v-if="$prismic.asText(slice.primary.quote)"
@@ -36,3 +36,7 @@ defineProps(getSliceComponentProps<Content.QuoteSlice>(
     </figure>
   </Bounded>
 </template>
+
+<style lang="scss">
+@import '/styles/slices/quote.scss';
+</style>
