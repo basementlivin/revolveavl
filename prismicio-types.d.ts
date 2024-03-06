@@ -83,17 +83,6 @@ interface EventDocumentData {
   meta_description: prismic.KeyTextField;
 
   /**
-   * Meta Image field in *Event*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: event.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-
-  /**
    * Meta Title field in *Event*
    *
    * - **Field Type**: Text
@@ -103,6 +92,17 @@ interface EventDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Event*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
 }
 
 /**
@@ -175,6 +175,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | NewsletterSignupSlice
   | HeroSlice
   | QuoteSlice
   | TextSlice
@@ -269,6 +270,51 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
+
+/**
+ * Primary content in *EventPicker → Primary*
+ */
+export interface EventPreviewSliceDefaultPrimary {
+  /**
+   * Event Picker field in *EventPicker → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_preview.primary.eventPicker
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  eventPicker: prismic.ContentRelationshipField<"event">;
+}
+
+/**
+ * Default variation for EventPicker Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventPreviewSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<EventPreviewSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *EventPicker*
+ */
+type EventPreviewSliceVariation = EventPreviewSliceDefault;
+
+/**
+ * EventPicker Shared Slice
+ *
+ * - **API ID**: `event_preview`
+ * - **Description**: EventPreview
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventPreviewSlice = prismic.SharedSlice<
+  "event_preview",
+  EventPreviewSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Primary*
@@ -500,6 +546,83 @@ type ImageCardsSliceVariation = ImageCardsSliceDefault;
 export type ImageCardsSlice = prismic.SharedSlice<
   "image_cards",
   ImageCardsSliceVariation
+>;
+
+/**
+ * Primary content in *NewsletterSignup → Primary*
+ */
+export interface NewsletterSignupSliceDefaultPrimary {
+  /**
+   * Headline field in *NewsletterSignup → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Revolve News
+   * - **API ID Path**: newsletter_signup.primary.headline
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  headline: prismic.RichTextField;
+
+  /**
+   * Copy field in *NewsletterSignup → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Sign up for our email list and never miss an event again!
+   * - **API ID Path**: newsletter_signup.primary.copy
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  copy: prismic.RichTextField;
+
+  /**
+   * Mailchimp Action URL field in *NewsletterSignup → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: https://revolveavl.us12.list-manage.com/subscribe/post?u=9656a8d7222f19b474060d83a&amp;id=1d2a995db9&amp;f_id=001c72e0f0
+   * - **API ID Path**: newsletter_signup.primary.mailchimp_action_url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  mailchimp_action_url: prismic.LinkField;
+
+  /**
+   * Background Color field in *NewsletterSignup → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select a background color for this section.
+   * - **API ID Path**: newsletter_signup.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background_color: prismic.SelectField<
+    "Putty" | "Drywall" | "LED" | "Pollen" | "Sawdust" | "Astro Turf"
+  >;
+}
+
+/**
+ * Default variation for NewsletterSignup Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NewsletterSignupSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NewsletterSignupSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *NewsletterSignup*
+ */
+type NewsletterSignupSliceVariation = NewsletterSignupSliceDefault;
+
+/**
+ * NewsletterSignup Shared Slice
+ *
+ * - **API ID**: `newsletter_signup`
+ * - **Description**: NewsletterSignup
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NewsletterSignupSlice = prismic.SharedSlice<
+  "newsletter_signup",
+  NewsletterSignupSliceVariation
 >;
 
 /**
@@ -761,6 +884,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      EventPreviewSlice,
+      EventPreviewSliceDefaultPrimary,
+      EventPreviewSliceVariation,
+      EventPreviewSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
@@ -776,6 +903,10 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefaultItem,
       ImageCardsSliceVariation,
       ImageCardsSliceDefault,
+      NewsletterSignupSlice,
+      NewsletterSignupSliceDefaultPrimary,
+      NewsletterSignupSliceVariation,
+      NewsletterSignupSliceDefault,
       QuoteSlice,
       QuoteSliceDefaultPrimary,
       QuoteSliceVariation,
