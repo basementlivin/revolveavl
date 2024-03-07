@@ -38,5 +38,5 @@ defineProps(getSliceComponentProps<Content.QuoteSlice>(
 </template>
 
 <style lang="scss">
-@import '/styles/slices/quote.scss';
+@import '/assets/styles/slices/quote.scss';
 </style>

@@ -26,5 +26,5 @@ defineProps(
 </template>
 
 <style lang="scss">
-@import '/styles/slices/newsletter-signup.scss';
+@import '/assets/styles/slices/newsletter-signup.scss';
 </style>

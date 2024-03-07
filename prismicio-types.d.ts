@@ -591,7 +591,7 @@ export interface NewsletterSignupSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   background_color: prismic.SelectField<
-    "Putty" | "Drywall" | "LED" | "Pollen" | "Sawdust" | "Astro Turf"
+    "putty" | "drywall" | "led" | "pollen" | "sawdust" | "astroturf"
   >;
 }
 

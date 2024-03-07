@@ -34,7 +34,7 @@
 			},
 			"background_color": {
 				"__TYPE__": "FieldContent",
-				"value": "Sawdust",
+				"value": "astroturf",
 				"type": "Select"
 			}
 		},

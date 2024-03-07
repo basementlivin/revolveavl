@@ -45,12 +45,12 @@
             "label": "Background Color",
             "placeholder": "Select a background color for this section.",
             "options": [
-              "Putty",
-              "Drywall",
-              "LED",
-              "Pollen",
-              "Sawdust",
-              "Astro Turf"
+              "putty",
+              "drywall",
+              "led",
+              "pollen",
+              "sawdust",
+              "astroturf"
             ]
           }
         }
