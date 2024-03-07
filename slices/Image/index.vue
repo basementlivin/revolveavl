@@ -20,7 +20,7 @@ defineProps(getSliceComponentProps<Content.ImageSlice>(
       v-if="slice.primary.image.url"
       class="bg-gray-100"
     >
-      <PrismicImage :field="slice.primary.image" />
+      <NuxtImg :src="slice.primary.image.url" />
     </div>
   </Bounded>
 </template>

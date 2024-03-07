@@ -15,7 +15,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@fontsource/inter": "^5.0.15"
+    "@nuxt/image": "^1.4.0"
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.0.0",

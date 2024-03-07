@@ -27,15 +27,18 @@ export default defineNuxtConfig({
 
   css: [
     '~/styles/global.css',
-    '@fontsource/inter/400.css',
-    '@fontsource/inter/500.css',
-    '@fontsource/inter/600.css'
   ],
 
   modules: [
     '@nuxtjs/prismic',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxt/image',
   ],
+  
+  image: {
+    provider: 'prismic',
+    prismic: {},
+  },
 
   prismic: {
     endpoint: 'revolveavl',
