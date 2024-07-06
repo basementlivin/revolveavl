@@ -17,7 +17,9 @@
           "config": {
             "label": "Event Picker",
             "select": "document",
-            "customtypes": ["event"]
+            "customtypes": [
+              "event"
+            ]
           }
         }
       },
