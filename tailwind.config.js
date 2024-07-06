@@ -3,7 +3,6 @@ const tailwindAspectRatio = require('@tailwindcss/aspect-ratio');
 module.exports = {
   mode: 'jit',
   purge: ['./components/**/*.{vue,js}', './layouts/**/*.vue', './pages/**/*.vue', './slices/**/*.vue', './plugins/**/*.{js,ts}', './nuxt.config.ts'],
-  darkMode: false,
   theme: {
     screens: {
       mobile: '380px',
