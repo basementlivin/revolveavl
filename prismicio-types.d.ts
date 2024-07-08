@@ -4,6 +4,71 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type CoopMembersDocumentDataSlicesSlice = CoopMemberSlice;
+
+/**
+ * Content for Meet the Co-Op Members documents
+ */
+interface CoopMembersDocumentData {
+  /**
+   * Slice Zone field in *Meet the Co-Op Members*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: coopMembers.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CoopMembersDocumentDataSlicesSlice> /**
+   * Meta Title field in *Meet the Co-Op Members*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: coopMembers.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Meet the Co-Op Members*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: coopMembers.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Meet the Co-Op Members*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: coopMembers.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Meet the Co-Op Members document from Prismic
+ *
+ * - **API ID**: `coopMembers`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CoopMembersDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CoopMembersDocumentData>,
+    "coopMembers",
+    Lang
+  >;
+
 type EventDocumentDataSlicesSlice = ImageSlice | TextWithImageSlice | TextSlice;
 
 /**
@@ -266,6 +331,7 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | CoopMembersDocument
   | EventDocument
   | NavigationDocument
   | PageDocument
@@ -982,6 +1048,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      CoopMembersDocument,
+      CoopMembersDocumentData,
+      CoopMembersDocumentDataSlicesSlice,
       EventDocument,
       EventDocumentData,
       EventDocumentDataSlicesSlice,
