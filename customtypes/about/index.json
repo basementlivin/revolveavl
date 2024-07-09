@@ -1,24 +1,14 @@
 {
   "format": "page",
-  "id": "coopMembers",
-  "label": "Meet the Co-Op Members",
-  "repeatable": false,
-  "status": true,
+  "id": "about",
   "json": {
     "Main": {
       "slices": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "call_to_action": {
-              "type": "SharedSlice"
-            },
-            "coop_member": {
-              "type": "SharedSlice"
-            }
-          }
-        }
+          "choices": {}
+        },
+        "fieldset": "Slice Zone",
+        "type": "Slices"
       }
     },
     "SEO & Metadata": {
@@ -48,5 +38,8 @@
         "type": "Image"
       }
     }
-  }
+  },
+  "label": "About",
+  "repeatable": false,
+  "status": true
 }
