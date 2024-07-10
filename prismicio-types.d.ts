@@ -124,7 +124,7 @@ interface CoopMembersDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type CoopMembersDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
+  prismic.PrismicDocumentWithUID<
     Simplify<CoopMembersDocumentData>,
     "coopMembers",
     Lang
@@ -557,6 +557,16 @@ export interface CoopMemberSliceDefaultPrimaryMemberItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   member_link: prismic.LinkField;
+
+  /**
+   * Link Text field in *CoopMember → Default → Primary → Co-Op Member*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: coop_member.default.primary.member[].member_link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  member_link_text: prismic.KeyTextField;
 }
 
 /**

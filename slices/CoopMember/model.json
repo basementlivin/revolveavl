@@ -64,6 +64,13 @@
                   "allowTargetBlank": false,
                   "select": null
                 }
+              },
+              "member_link_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Link Text",
+                  "placeholder": ""
+                }
               }
             }
           }

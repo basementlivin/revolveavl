@@ -54,6 +54,16 @@ export default defineNuxtConfig({
           uid: 'home',
           path: '/',
         },
+        {
+          type: 'page',
+          uid: 'about',
+          path: '/about',
+        },
+        {
+          type: 'coopMembers',
+          uid: 'meet-the-co-op-members',
+          path: '/about/meet-the-co-op-members',
+        }
       ]
     }
   },
