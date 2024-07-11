@@ -19,7 +19,7 @@
           "label": "Title",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "heading1"
+          "single": "heading1,strong,em"
         }
       },
       "parent": {
@@ -35,6 +35,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "call_to_action": {
+              "type": "SharedSlice"
+            },
+            "coop_member": {
+              "type": "SharedSlice"
+            },
             "newsletter_signup": {
               "type": "SharedSlice"
             },
@@ -57,6 +63,33 @@
               "type": "SharedSlice"
             }
           }
+        }
+      }
+    },
+    "SEO": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": ""
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": ""
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": {
+            "width": 1280,
+            "height": 720
+          },
+          "thumbnails": []
         }
       }
     }

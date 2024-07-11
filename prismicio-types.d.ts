@@ -65,71 +65,6 @@ interface AboutDocumentData {
 export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
 
-type CoopMembersDocumentDataSlicesSlice = CallToActionSlice | CoopMemberSlice;
-
-/**
- * Content for Meet the Co-Op Members documents
- */
-interface CoopMembersDocumentData {
-  /**
-   * Slice Zone field in *Meet the Co-Op Members*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: coopMembers.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<CoopMembersDocumentDataSlicesSlice> /**
-   * Meta Title field in *Meet the Co-Op Members*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: coopMembers.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
-   * Meta Description field in *Meet the Co-Op Members*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: coopMembers.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Meet the Co-Op Members*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: coopMembers.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-}
-
-/**
- * Meet the Co-Op Members document from Prismic
- *
- * - **API ID**: `coopMembers`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type CoopMembersDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<CoopMembersDocumentData>,
-    "coopMembers",
-    Lang
-  >;
-
 type EventDocumentDataSlicesSlice = ImageSlice | TextWithImageSlice | TextSlice;
 
 /**
@@ -301,6 +236,8 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | CallToActionSlice
+  | CoopMemberSlice
   | NewsletterSignupSlice
   | HeroSlice
   | QuoteSlice
@@ -316,13 +253,13 @@ interface PageDocumentData {
   /**
    * Title field in *Page*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: page.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  title: prismic.TitleField;
+  title: prismic.RichTextField;
 
   /**
    * Parent field in *Page*
@@ -344,7 +281,38 @@ interface PageDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<PageDocumentDataSlicesSlice>;
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.meta_title
+   * - **Tab**: SEO
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.meta_description
+   * - **Tab**: SEO
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.meta_image
+   * - **Tab**: SEO
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
 }
 
 /**
@@ -366,13 +334,35 @@ interface SettingsDocumentData {
   /**
    * Site Title field in *Settings*
    *
-   * - **Field Type**: Title
-   * - **Placeholder**: Title of the site
-   * - **API ID Path**: settings.siteTitle
+   * - **Field Type**: Text
+   * - **Placeholder**: REVOLVE
+   * - **API ID Path**: settings.site_title
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  siteTitle: prismic.TitleField;
+  site_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.meta_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * OG Image field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.og_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  og_image: prismic.ImageField<never>;
 }
 
 /**
@@ -393,7 +383,6 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AboutDocument
-  | CoopMembersDocument
   | EventDocument
   | NavigationDocument
   | PageDocument
@@ -1218,9 +1207,6 @@ declare module "@prismicio/client" {
       AboutDocument,
       AboutDocumentData,
       AboutDocumentDataSlicesSlice,
-      CoopMembersDocument,
-      CoopMembersDocumentData,
-      CoopMembersDocumentDataSlicesSlice,
       EventDocument,
       EventDocumentData,
       EventDocumentDataSlicesSlice,

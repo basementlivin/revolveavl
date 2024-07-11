@@ -15,9 +15,7 @@ const settings = useSettings()
         to="/"
         class="text-xl font-semibold tracking-tight"
       >
-        {{
-          $prismic.asText(settings?.data.siteTitle)
-        }}
+        {{ settings?.data.site_title }}
       </NuxtLink>
       <nav>
         <ul

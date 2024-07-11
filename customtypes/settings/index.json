@@ -6,13 +6,29 @@
   "status": true,
   "json": {
     "Main": {
-      "siteTitle": {
-        "type": "StructuredText",
+      "site_title": {
+        "type": "Text",
         "config": {
           "label": "Site Title",
-          "placeholder": "Title of the site",
-          "allowTargetBlank": false,
-          "single": "heading1"
+          "placeholder": "REVOLVE"
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": ""
+        }
+      },
+      "og_image": {
+        "type": "Image",
+        "config": {
+          "label": "OG Image",
+          "constraint": {
+            "width": 1280,
+            "height": 720
+          },
+          "thumbnails": []
         }
       }
     }

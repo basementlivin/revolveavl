@@ -3,7 +3,7 @@ import { repositoryName } from './slicemachine.config.json'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: true,
+  devtools: { enabled: true },
 
   app: {
     head: {
@@ -54,16 +54,6 @@ export default defineNuxtConfig({
           uid: 'home',
           path: '/',
         },
-        {
-          type: 'page',
-          uid: 'about',
-          path: '/about',
-        },
-        {
-          type: 'coopMembers',
-          uid: 'meet-the-co-op-members',
-          path: '/about/meet-the-co-op-members',
-        }
       ]
     }
   },
