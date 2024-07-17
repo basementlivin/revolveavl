@@ -23,7 +23,6 @@
     "@nuxtjs/prismic": "^3.1.0",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@slicemachine/adapter-nuxt": "^0.3.42",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
     "concurrently": "^8.2.2",
     "eslint": "^8.52.0",
     "nuxt": "^3.8.0",

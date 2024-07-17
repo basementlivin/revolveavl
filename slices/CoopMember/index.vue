@@ -17,23 +17,23 @@ defineProps(
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="coop-members bg-drywall"
+    class="coop-members bg-drywall p-12"
   >
-    <div class="coop-members__inner flex-col">
+    <div class="coop-members__inner flex flex-col gap-12">
       <div 
         v-for="(item, index) in slice.primary.member" 
         :key="index"
-        class="member"
+        class="member min-w-full flex flex-col gap-8 laptop:even:flex-row-reverse laptop:odd:flex-row"
       >
-        <div class="member__image">
-          <NuxtImg 
+        <div class="member__image aspect-square border-void border-2 rounded-3xl overflow-hidden laptop:w-1/2">
+          <NuxtImg
             :src="item.member_photo.url" 
-            class="image"
             :alt="item.member_photo.alt || item.member_name"
+            class="image object-cover w-full h-full"
           />
         </div>
     
-        <div class="member__info">
+        <div class="member__info flex flex-col justify-center laptop:w-1/2">
           <p class="role font-sans-regular">
             {{ item.member_role }}
           </p>
@@ -48,12 +48,12 @@ defineProps(
           
           <PrismicRichText
             :field="item.member_bio"
-            class="bio font-sans-light"
+            class="bio font-sans-light py-6 flex flex-col gap-2"
           />
 
           <PrismicLink
             :field="item.member_link"
-            class="link btn btn--primary"
+            class="link btn-red"
           >
             {{ item.member_link_text }}
           </PrismicLink>
