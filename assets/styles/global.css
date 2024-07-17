@@ -42,6 +42,12 @@
     font-style: normal;
     font-weight: 700;
   }
+  @font-face {
+    font-family: 'Tex Gyre Heros Condensed';
+    src: url('/assets/fonts/TexGyreHerosCn.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 };
 
 body {
