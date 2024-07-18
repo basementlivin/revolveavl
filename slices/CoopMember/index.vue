@@ -34,13 +34,13 @@ defineProps(
         </div>
     
         <div class="member__info flex flex-col justify-center laptop:w-1/2">
-          <p class="role font-sans-regular">
+          <p class="role font-sans-regular text-xl">
             {{ item.member_role }}
           </p>
-          <div class="name font-sans-light">
-            <h3 class="first-last">
+          <div class="name">
+            <h3 class="first-last font-sans-light text-4xl">
               {{ item.member_name }}
-              <span class="pronouns font-condensed">
+              <span class="pronouns font-condensed text-3xl">
                 ({{ item.member_pronouns }})
               </span>
             </h3>
@@ -53,7 +53,7 @@ defineProps(
 
           <PrismicLink
             :field="item.member_link"
-            class="link btn-red"
+            class="link btn-red tracking-wider"
           >
             {{ item.member_link_text }}
           </PrismicLink>

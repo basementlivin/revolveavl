@@ -24,7 +24,7 @@ const settings = useSettings()
           <li
             v-for="item in navigation?.data.links"
             :key="$prismic.asText(item.label) || ''"
-            class="font-semibold tracking-tight text-slate-800"
+            class="font-semibold tracking-tight text-void"
           >
             <PrismicLink
               :field="item.link"

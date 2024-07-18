@@ -14,5 +14,6 @@ useSeoMeta({
   <div class="bg-putty">
     <Header />
     <slot />
+    <Footer />
   </div>
 </template>
